@@ -3,7 +3,6 @@ import { Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { authProvider } from './component/authProvider';
 
-
 const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 const App = () => (
   <Admin dataProvider={dataProvider} authProvider={authProvider}>
