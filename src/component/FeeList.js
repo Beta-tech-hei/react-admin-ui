@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EmailField, TextInput, CreateButton, FilterButton, FilterForm, ListBase, SimpleList } from "react-admin";
+import { List, Datagrid, TextField, EmailField, TextInput, CreateButton,FilterForm, SimpleList } from "react-admin";
 import { Stack, useMediaQuery } from '@mui/material';
 
 const postFilters = [
