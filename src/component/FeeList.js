@@ -1,36 +1,35 @@
-import { List, Datagrid, TextField, EmailField, TextInput, CreateButton,FilterForm, SimpleList } from "react-admin";
-import { Stack, useMediaQuery } from '@mui/material';
+import { List, Datagrid, TextField, SearchInput, EmailField, TextInput, CreateButton,FilterForm, SimpleList, BooleanField, FilterButton } from "react-admin";
+import { Stack, useMediaQuery ,Chip} from '@mui/material';
+import { useTranslate } from "react-admin";
 
+const QuickFilter = ({ label }) => {
+    const translate = useTranslate();
+    return <Chip sx={{ marginBottom: 1 }} label={translate(label)} />;
+};
 const postFilters = [
-    <TextInput label="Search" source="q" alwaysOn />,
-    <TextInput source="name" />,
+    <SearchInput source="q" alwaysOn />,
+    <QuickFilter source="statusOn" label="Fee paid" defaultValue={true} />,
+    <QuickFilter source="statusOff" label="Unpaid fees" defaultValue={false} />,
 ];
 
 const ListToolbar = () => (
     <Stack direction="row" >
         <FilterForm filters={postFilters} />
+        <FilterButton filters={postFilters}/>
     </Stack>
 );
 
 
 const FeeList = () => {
-    const isSmall = useMediaQuery(theme => theme.breakpoints.down("sm"));
     return (<>
-        <List>
+        <List >
             <ListToolbar />
-            {isSmall ? (
-                <SimpleList
-                    primaryText={record => record.id}
-                    secondaryText={record => record.email}
-                    tertiaryText={record => record.name}
-                />
-            ) : (
                 <Datagrid rowClick="edit">
                     <TextField source="id" />
                     <TextField source="name" />
                     <EmailField source="email" />
+                    <BooleanField source="status" />
                 </Datagrid>
-            )}
             <CreateButton />
         </List>
     </>);
