@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, SearchInput, EmailField, CreateButton,FilterForm, BooleanField, FilterButton, ShowButton, DateField } from "react-admin";
+import { List, Datagrid, TextField, SearchInput, EmailField, CreateButton,FilterForm, BooleanField, FilterButton, ShowButton, DateField, EditButton } from "react-admin";
 import { Stack, Chip} from '@mui/material';
 import { useTranslate } from "react-admin";
 
@@ -8,8 +8,9 @@ const QuickFilter = ({ label }) => {
 };
 const postFilters = [
     <SearchInput source="q" alwaysOn />,
-    <QuickFilter source="statusOn" label="Fee paid" defaultValue={true} />,
-    <QuickFilter source="statusOff" label="Unpaid fees" defaultValue={false} />,
+    <QuickFilter source="status" label="Fee paid" defaultValue={'paid'} />,
+    <QuickFilter source="status" label="Unpaid fee" defaultValue={'unpaid'} />,
+    <QuickFilter source="status" label="Fee late" defaultValue={'late'} />
 ];
 
 const ListToolbar = () => (
@@ -28,11 +29,11 @@ const FeeList = () => {
                     <TextField source="id" />
                     <TextField source="name" />
                     <EmailField source="email" />
-                    <BooleanField source="status" />
-                    <DateField source='payment date'  />
+                    <TextField source="status" />
+                    <DateField source='payment_date'  />
                     <ShowButton />
+                    <EditButton />
                 </Datagrid>
-            <CreateButton />
         </List>
     </>);
 }
