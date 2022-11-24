@@ -1,5 +1,5 @@
-import { List, Datagrid, TextField, SearchInput, EmailField, TextInput, CreateButton,FilterForm, SimpleList, BooleanField, FilterButton } from "react-admin";
-import { Stack, useMediaQuery ,Chip} from '@mui/material';
+import { List, Datagrid, TextField, SearchInput, EmailField, CreateButton,FilterForm, BooleanField, FilterButton, ShowButton, DateField } from "react-admin";
+import { Stack, Chip} from '@mui/material';
 import { useTranslate } from "react-admin";
 
 const QuickFilter = ({ label }) => {
@@ -29,6 +29,8 @@ const FeeList = () => {
                     <TextField source="name" />
                     <EmailField source="email" />
                     <BooleanField source="status" />
+                    <DateField source='payment date'  />
+                    <ShowButton />
                 </Datagrid>
             <CreateButton />
         </List>
