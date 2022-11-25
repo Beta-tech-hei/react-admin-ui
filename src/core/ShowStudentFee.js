@@ -5,20 +5,21 @@ import {
     EmailField,
     NumberField,
 } from 'react-admin';
-import { BooleanField, DateField } from 'react-admin';
+import { DateField } from 'react-admin';
 import { Grid } from '@mui/material/'
 
 
 export function ShowStudentFee(props) {
     return (
         <Show
-            resource='users'
+            resource='fees'
         >            
             <Grid container spacing={3} margin="1em">
                 <Grid item xs>
                     <SimpleShowLayout>
                         <TextField source='id' />
-                        <TextField source='name' />
+                        <TextField source="first_name" />
+                    <TextField source="last_name" />
                         <EmailField source='email' />
                     </SimpleShowLayout>
                 </Grid>
@@ -26,7 +27,7 @@ export function ShowStudentFee(props) {
                 <SimpleShowLayout>
                         <TextField source='comment' />
                         <TextField source='total_amount' />
-                        <DateField source='payment_date' />
+                        <DateField source='creation_datetime' label="Payment date" />
                         <DateField source='due_datetime' />
                         <NumberField source='remaining_amount'/>
                         <TextField source='status' />

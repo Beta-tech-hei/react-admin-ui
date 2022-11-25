@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, SearchInput, EmailField, CreateButton,FilterForm, BooleanField, FilterButton, ShowButton, DateField, EditButton } from "react-admin";
+import { List, Datagrid, TextField, SearchInput, EmailField, FilterForm, FilterButton, ShowButton, DateField, EditButton } from "react-admin";
 import { Stack, Chip} from '@mui/material';
 import { useTranslate } from "react-admin";
 
@@ -26,11 +26,12 @@ const FeeList = () => {
         <List >
             <ListToolbar />
                 <Datagrid rowClick="edit">
-                    <TextField source="id" />
-                    <TextField source="name" />
+                    <TextField source="id"/>
+                    <TextField source="first_name" />
+                    <TextField source="last_name" />
                     <EmailField source="email" />
                     <TextField source="status" />
-                    <DateField source='payment_date'  />
+                    <DateField source='creation_datetime' label="Payment date"  />
                     <ShowButton />
                     <EditButton />
                 </Datagrid>
