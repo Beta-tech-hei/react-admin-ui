@@ -4,10 +4,9 @@ import jsonServerProvider from 'ra-data-json-server';
 import { authProvider } from './provider/authProvider';
 import FeeList from './core/FeeList';
 import { ShowStudentFee } from './core/ShowStudentFee';
-import feeDetails from './pages/list/feesDetails';
+import { dataProvider } from './provider/FakeProvider';
+import feeDetails from "./pages/list/feesDetails"
 
-
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 const App = () => (
   <Admin dataProvider={dataProvider} authProvider={authProvider} >
     <Resource name="posts" list={feeDetails} />
