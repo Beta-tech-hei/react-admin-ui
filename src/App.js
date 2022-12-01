@@ -2,6 +2,8 @@ import React from 'react';
 import { Admin, Resource, ListGuesser } from 'react-admin';
 import {authProvider} from "./provider/authProvider";
 import {dataProvider} from "./provider/FakeProvider";
+
+
 import FeeList from './core/FeeList';
 import { ShowStudentFee } from './core/ShowStudentFee';
 import { EditStudentFee } from './core/EditStudentFee';
@@ -17,6 +19,7 @@ const App = () => {
     </Admin>
   );
 };
+
 
 
 export default App;
