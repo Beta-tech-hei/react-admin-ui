@@ -28,7 +28,7 @@ const FeeList = () => {
         <List >
             <ListToolbar />
                 <Datagrid rowClick="edit">
-                    <TextField source="id"/>
+                    <TextField source="ref"/>
                     <TextField source="first_name" />
                     <TextField source="last_name" />
                     <EmailField source="email" />
